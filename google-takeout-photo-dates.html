@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Google Takeout downloaded your photos with the wrong date. Your timeline is scrambled. Learn why it happens and how to fix it instantly with our free Windows app.">
+  <meta name="keywords" content="Google Takeout photo dates wrong, fix photo dates Takeout, repair Google Photos import dates, photo creation date wrong">
+  <meta name="author" content="Nikatsam">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Fix Google Takeout Photo Dates - Restore Your Timeline">
+  <meta property="og:description" content="Google Takeout replaced your real photo dates with download dates. See why it happens and how to fix your entire library instantly.">
+  <meta property="og:url" content="https://nikatsam.github.io/FixMyPhotoDates-Website/google-takeout-photo-dates.html">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://nikatsam.github.io/FixMyPhotoDates-Website/google-takeout-photo-dates.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <title>Fix Google Takeout Photo Dates | Restore Timeline</title>
+
+  <style>
+    :root {
+      --accent-600: #D97706;
+      --accent-500: #F59E0B;
+      --accent-50: #FEF3C7;
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-700: #334155;
+      --slate-500: #64748B;
+      --slate-100: #E2E8F0;
+      --slate-50: #F8F9FA;
+      --success: #10B981;
+      --text-primary: #1E293B;
+      --text-secondary: #64748B;
+      --bg-light: #F8F9FA;
+      --bg-white: #FFFFFF;
+
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-primary);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --text-primary: #F1F5F9;
+        --text-secondary: #CBD5E1;
+        --bg-light: #1E293B;
+        --bg-white: #0F172A;
+        --slate-100: #334155;
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --text-primary: #F1F5F9;
+      --text-secondary: #CBD5E1;
+      --bg-light: #1E293B;
+      --bg-white: #0F172A;
+      --slate-100: #334155;
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0 16px;
+      background: var(--bg-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; }
+
+    h1 { font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 800; margin: 2rem 0 1rem 0; line-height: 1.2; }
+    h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; margin: 2.5rem 0 1rem 0; color: var(--accent-600); }
+    h3 { font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; }
+
+    p { margin: 0 0 1rem 0; max-width: 65ch; }
+
+    a { color: var(--accent-600); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--slate-100);
+      margin-bottom: 2rem;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--accent-600);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav a { color: var(--text-secondary); }
+    nav a:hover { color: var(--accent-600); }
+
+    @media (max-width: 640px) {
+      nav { display: none; }
+    }
+
+    .breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .breadcrumb a { color: var(--accent-600); }
+
+    .problem-box {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.05), rgba(245, 158, 11, 0.05));
+      border-left: 4px solid var(--accent-600);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .problem-box {
+        background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(245, 158, 11, 0.1));
+        border-left-color: var(--accent-500);
+      }
+    }
+
+    :root[data-theme="dark"] .problem-box {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(245, 158, 11, 0.1));
+      border-left-color: var(--accent-500);
+    }
+
+    .step-section {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .step-section {
+        background: var(--slate-900);
+      }
+    }
+
+    :root[data-theme="dark"] .step-section {
+      background: var(--slate-900);
+    }
+
+    .step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #D97706, #F59E0B);
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 { margin-top: 0; }
+
+    .cta-section {
+      background: linear-gradient(135deg, #D97706, #F59E0B);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .cta-section h2 { color: white; }
+    .cta-section p { color: rgba(255, 255, 255, 0.9); }
+
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 1.75rem;
+      background: white;
+      color: var(--accent-600);
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    ul, ol { max-width: 65ch; }
+    li { margin-bottom: 0.5rem; }
+
+    footer {
+      border-top: 1px solid var(--slate-100);
+      padding: 3rem 0;
+      margin-top: 4rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .related-links {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .related-links {
+        background: var(--slate-900);
+      }
+    }
+
+    :root[data-theme="dark"] .related-links {
+      background: var(--slate-900);
+    }
+
+    .related-links h3 { margin-top: 0; }
+    .related-links ul { margin: 0; padding-left: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <div class="logo">📸 Fix My Photo Dates</div>
+        <nav>
+          <a href="./">Home</a>
+          <a href="product.html">How It Works</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="breadcrumb">
+      <a href="./">Home</a>
+      <span>/</span>
+      <span>Google Takeout Photo Dates</span>
+    </div>
+
+    <article>
+      <h1>Fix Google Takeout Photo Dates: Restore Your Correct Timeline</h1>
+      <p><strong>You downloaded your photos from Google Photos.</strong> But when you opened them, they're all showing the download date instead of when you actually took them. Your photo library is now in random order. Your albums are scrambled. This is fixable—instantly.</p>
+
+      <div class="problem-box">
+        <h3>The Problem</h3>
+        <p>When you download photos from Google Takeout, Google doesn't include the original photo date in the default export. Instead, your files get the current download date as their metadata. So a photo you took in 2015 now shows as "2024" because that's when you downloaded it.</p>
+        <p><strong>Result:</strong> Your photo library displays chronologically by download order, not by actual photo date. Albums show photos randomly. Your timeline is destroyed.</p>
+      </div>
+
+      <h2>Why Does Google Takeout Do This?</h2>
+      <p>It's a technical limitation, not intentional:</p>
+      <ul>
+        <li><strong>Google Photos stores dates separately:</strong> The photo's actual "Date Taken" lives in EXIF metadata and Google's backend database, not in the exported file</li>
+        <li><strong>Takeout export doesn't include EXIF by default:</strong> You get the image file, but the creation date metadata is lost</li>
+        <li><strong>Windows uses "Date Modified":</strong> When Takeout exports files, they get the current download date as modification time</li>
+        <li><strong>Results matter more than metadata to Google:</strong> Google Photos shows correct dates in their app, so they assume users don't care about file-level metadata</li>
+      </ul>
+
+      <h2>How to Diagnose: Do You Actually Have This Problem?</h2>
+      <p>Before fixing, confirm this is what happened:</p>
+
+      <div class="step-section">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Open File Properties</h3>
+            <p>Right-click a photo from your Takeout download → <strong>Properties</strong> → check "Date modified"</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Check Against Original</h3>
+            <p>Does the date match when you downloaded? Or does it match the real photo date? (If you remember when you took it)</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>View in Photo App</h3>
+            <p>Open photos in Windows Photos or similar. Do they show in correct chronological order? If random, dates are broken.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Check JSON Sidecar Files</h3>
+            <p>Google Takeout includes .json files with each photo. These contain the REAL dates. So the metadata exists—just in a separate file.</p>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>If all your Takeout photos show the same date (your download date),</strong> you have this issue.</p>
+
+      <h2>Can You Manually Fix This? (The Hard Way)</h2>
+      <p>Technically yes, but it's painful:</p>
+      <ul>
+        <li>✗ Extract dates from JSON sidecar files manually</li>
+        <li>✗ Match them to corresponding image files</li>
+        <li>✗ Use command-line tools to update file metadata</li>
+        <li>✗ Handle conflicts when dates don't match</li>
+        <li>✗ Risk corrupting files if you make mistakes</li>
+        <li>✗ Repeat for thousands of photos</li>
+      </ul>
+      <p>Most people quit after 20 photos.</p>
+
+      <h2>The Solution: Automated Repair (One Click)</h2>
+      <p>Fix My Photo Dates automates what Google Takeout should have done:</p>
+
+      <div class="step-section">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Download & Run</h3>
+            <p>Get the Windows app from Microsoft Store. No account is required to diagnose your files.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Scan Your Library</h3>
+            <p>App reads your photos and finds the JSON metadata files Google created. It extracts the real dates from those files.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Review Changes</h3>
+            <p>Review the detected date, its source, and the proposed change before you approve a repair.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Done</h3>
+            <p>Your selected file timestamps and EXIF dates are updated. The importing photo app may prioritize one date field over another.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Why This Happens to Other Cloud Services Too</h2>
+      <p>Takeout isn't unique:</p>
+      <ul>
+        <li><strong>Other services:</strong> Downloaded files can have filesystem dates that differ from the capture date</li>
+        <li><strong>Metadata varies:</strong> Export services preserve photo dates differently; inspect files and accompanying metadata</li>
+      </ul>
+      <p>The app can inspect local image files using supported embedded metadata and filename patterns. Google Takeout JSON sidecar matching is its specific sidecar workflow.</p>
+
+      <h2>Prevention: How to Avoid This Next Time</h2>
+      <p>For future Google Takeout exports:</p>
+      <ul>
+        <li><strong>Keep the JSON files:</strong> Google includes them for a reason. Don't delete them.</li>
+        <li><strong>Don't re-organize immediately:</strong> Moving files before fixing dates makes it harder to match files to metadata.</li>
+        <li><strong>Use structured export:</strong> When possible, keep photos in the folder structure Google provides.</li>
+        <li><strong>Fix dates before organizing:</strong> Let our tool restore dates first, then reorganize by date safely.</li>
+      </ul>
+
+      <div class="cta-section">
+        <h2>Ready to Fix Your Timeline?</h2>
+        <p>Diagnose your files, review the detected dates, and choose which values to update.</p>
+        <a href="https://apps.microsoft.com/detail/9NFKQ1MV9399" class="btn" target="_blank" rel="noopener">Get on Microsoft Store</a>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">100% local processing. Your photos never leave your computer.</p>
+      </div>
+
+      <div class="related-links">
+        <h3>Related Problems We Fix</h3>
+        <ul>
+          <li><a href="photo-dates-after-moving-files.html">Photo dates got wrong after moving files</a></li>
+          <li><a href="mixed-photo-sources.html">Mixing photos from multiple sources</a></li>
+          <li><a href="faq.html">More FAQ about photo date repair</a></li>
+        </ul>
+      </div>
+
+      <h2>FAQ</h2>
+      <h3>Does our app require Google Takeout JSON files?</h3>
+      <p>No—we'll extract dates from multiple sources. JSON is just one option. We also use EXIF metadata, filename patterns, and file timestamps.</p>
+
+      <h3>Will this work for other cloud services?</h3>
+      <p>You can scan local image files downloaded from other services, but sidecar formats differ. The app specifically supports Google Takeout JSON sidecars; other files must contain another supported date source such as embedded metadata or a recognized filename pattern.</p>
+
+      <h3>Is it really free?</h3>
+      <p>Check the Microsoft Store listing for current price and licensing details.</p>
+
+      <h3>What if the app makes mistakes?</h3>
+      <p>You review proposed dates before applying them. Repair actions are recorded locally for rollback; keep a separate backup of important photos before editing metadata.</p>
+    </article>
+
+    <footer>
+      <p>&copy; 2026 Fix My Photo Dates Timeline. <a href="./">Home</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+    </footer>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowToArticle",
+    "headline": "Fix Google Takeout Photo Dates: Restore Your Correct Timeline",
+    "description": "Google Takeout downloads replace photo dates with download dates. Learn why it happens and how to fix your entire library instantly.",
+    "image": "https://nikatsam.github.io/FixMyPhotoDates-Website/social-preview.svg",
+    "author": {
+      "@type": "Organization",
+      "name": "Fix My Photo Dates Timeline"
+    },
+    "datePublished": "2026-09-24",
+    "articleBody": "When you download photos from Google Takeout, they get the download date instead of the original photo date...",
+    "howToStep": [
+      {
+        "@type": "HowToStep",
+        "name": "Download the app",
+        "text": "Download Fix My Photo Dates for Windows"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Scan your library",
+        "text": "App reads your photos and finds the JSON metadata files"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Review changes",
+        "text": "Approve the date fixes before applying"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Done",
+        "text": "Your photos now show the correct timeline"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://nikatsam.github.io/FixMyPhotoDates-Website/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Google Takeout Photo Dates",
+        "item": "https://nikatsam.github.io/FixMyPhotoDates-Website/google-takeout-photo-dates.html"
+      }
+    ]
+  }
+  </script>
+</body>
+</html>

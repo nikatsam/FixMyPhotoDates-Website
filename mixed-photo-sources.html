@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Photos from phone, cloud, USB, and backups have conflicting dates. Your library is chaotic. Learn how to organize photos from multiple sources with consistent metadata.">
+  <meta name="keywords" content="organize photos multiple sources, sync photo dates, resolve photo date conflicts, combine photos different devices">
+  <meta name="author" content="Nikatsam">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Organize Photos From Multiple Sources - Fix Date Conflicts">
+  <meta property="og:description" content="Combining photos from phone, cloud, USB, and backups? Dates conflict. See how to resolve conflicts and create a unified timeline.">
+  <meta property="og:url" content="https://nikatsam.github.io/FixMyPhotoDates-Website/mixed-photo-sources.html">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://nikatsam.github.io/FixMyPhotoDates-Website/mixed-photo-sources.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <title>Fix Photo Date Conflicts From Multiple Sources</title>
+
+  <style>
+    :root {
+      --accent-600: #D97706;
+      --accent-500: #F59E0B;
+      --accent-50: #FEF3C7;
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-700: #334155;
+      --slate-500: #64748B;
+      --slate-100: #E2E8F0;
+      --slate-50: #F8F9FA;
+      --success: #10B981;
+      --text-primary: #1E293B;
+      --text-secondary: #64748B;
+      --bg-light: #F8F9FA;
+      --bg-white: #FFFFFF;
+
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-primary);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --text-primary: #F1F5F9;
+        --text-secondary: #CBD5E1;
+        --bg-light: #1E293B;
+        --bg-white: #0F172A;
+        --slate-100: #334155;
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --text-primary: #F1F5F9;
+      --text-secondary: #CBD5E1;
+      --bg-light: #1E293B;
+      --bg-white: #0F172A;
+      --slate-100: #334155;
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0 16px;
+      background: var(--bg-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; }
+
+    h1 { font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 800; margin: 2rem 0 1rem 0; line-height: 1.2; }
+    h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; margin: 2.5rem 0 1rem 0; color: var(--accent-600); }
+    h3 { font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; }
+
+    p { margin: 0 0 1rem 0; max-width: 65ch; }
+
+    a { color: var(--accent-600); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--slate-100);
+      margin-bottom: 2rem;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--accent-600);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav a { color: var(--text-secondary); }
+    nav a:hover { color: var(--accent-600); }
+
+    @media (max-width: 640px) {
+      nav { display: none; }
+    }
+
+    .breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .breadcrumb a { color: var(--accent-600); }
+
+    .problem-box {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.05), rgba(245, 158, 11, 0.05));
+      border-left: 4px solid var(--accent-600);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .problem-box {
+        background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(245, 158, 11, 0.1));
+        border-left-color: var(--accent-500);
+      }
+    }
+
+    :root[data-theme="dark"] .problem-box {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(245, 158, 11, 0.1));
+      border-left-color: var(--accent-500);
+    }
+
+    .step-section {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .step-section {
+        background: var(--slate-900);
+      }
+    }
+
+    :root[data-theme="dark"] .step-section {
+      background: var(--slate-900);
+    }
+
+    .source-card {
+      background: var(--bg-light);
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
+      border-left: 3px solid var(--accent-600);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .source-card {
+        background: var(--slate-900);
+        border-left-color: var(--accent-500);
+      }
+    }
+
+    :root[data-theme="dark"] .source-card {
+      background: var(--slate-900);
+      border-left-color: var(--accent-500);
+    }
+
+    .source-card h4 { margin-top: 0; color: var(--accent-600); }
+    .source-card p { margin: 0; color: var(--text-secondary); }
+
+    .cta-section {
+      background: linear-gradient(135deg, #D97706, #F59E0B);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .cta-section h2 { color: white; }
+    .cta-section p { color: rgba(255, 255, 255, 0.9); }
+
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 1.75rem;
+      background: white;
+      color: var(--accent-600);
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    ul, ol { max-width: 65ch; }
+    li { margin-bottom: 0.5rem; }
+
+    footer {
+      border-top: 1px solid var(--slate-100);
+      padding: 3rem 0;
+      margin-top: 4rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .related-links {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .related-links {
+        background: var(--slate-900);
+      }
+    }
+
+    :root[data-theme="dark"] .related-links {
+      background: var(--slate-900);
+    }
+
+    .related-links h3 { margin-top: 0; }
+    .related-links ul { margin: 0; padding-left: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <div class="logo">📸 Fix My Photo Dates</div>
+        <nav>
+          <a href="./">Home</a>
+          <a href="product.html">How It Works</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="breadcrumb">
+      <a href="./">Home</a>
+      <span>/</span>
+      <span>Mixed Photo Sources</span>
+    </div>
+
+    <article>
+      <h1>Organize Photos From Multiple Sources: Fix Date Conflicts</h1>
+      <p><strong>You got photos from everywhere:</strong> iPhone, Android, cloud storage, USB drive, old laptop backup, your camera. Now you're combining them into one library. But each source has different dates. Some are missing dates entirely. Your unified library is chaos—photos out of order, conflicts, duplicates.</p>
+
+      <div class="problem-box">
+        <h3>The Problem</h3>
+        <p>Different devices and services store photo dates differently:</p>
+        <ul style="margin: 1rem 0 0 0;">
+          <li><strong>Phone and camera photos:</strong> May contain an embedded EXIF capture date</li>
+          <li><strong>Google Takeout:</strong> Can include JSON sidecars with photo date information</li>
+          <li><strong>Copied files:</strong> Filesystem timestamps may differ from the capture date</li>
+          <li><strong>Older archives:</strong> Some photos may have missing metadata or date-bearing filenames</li>
+        </ul>
+        <p>Different date fields can disagree, and some files may have no clear capture date. Check which field your photo app uses before deciding what to change.</p>
+      </div>
+
+      <h2>Typical Scenario: The Chaos</h2>
+      <p>This story is common:</p>
+      <ul>
+        <li>A folder contains photos from different phones and cameras</li>
+        <li>Some files have embedded capture dates; others only have filesystem timestamps</li>
+        <li>A Google Takeout export includes JSON sidecars for some images</li>
+        <li>Filename patterns provide clues for a subset of the photos</li>
+        <li>You want to inspect those dates before importing the files into another app</li>
+      </ul>
+
+      <h2>Understanding Your Photo Sources</h2>
+
+      <div class="source-card">
+        <h4>📱 iPhone / iOS</h4>
+        <p>May contain an EXIF capture date. Check the camera clock and actual date before using it as a repair target.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>🤖 Android Phones</h4>
+        <p>Good EXIF data, but sometimes stored in different location. Scan all metadata fields.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>☁️ Google Photos Export</h4>
+        <p>May include JSON sidecars with photoTakenTime. The app can match supported sidecars when enabled.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>🔗 OneDrive / Dropbox Sync</h4>
+        <p>Behavior varies by service and settings. Inspect downloaded files and compare their available date fields.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>💾 USB Drive / External Backup</h4>
+        <p>Filesystem timestamps can reflect a later copy. Embedded metadata and filenames may still provide useful clues.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>📷 Camera / DSLR</h4>
+        <p>Usually has accurate dates if camera clock was set correctly. Trust these dates.</p>
+      </div>
+
+      <h2>How to Resolve Conflicts</h2>
+      <p>When a photo has 3 different dates, which one is correct?</p>
+
+      <div class="step-section">
+        <h3>Smart Priority Order</h3>
+        <ul>
+          <li><strong>Embedded photo date:</strong> EXIF capture date is checked first when present</li>
+          <li><strong>Google Takeout sidecar:</strong> Checked when enabled and no embedded date is found</li>
+          <li><strong>Filename date:</strong> Supported patterns can provide a proposed date</li>
+          <li><strong>Other clues:</strong> Chronology, optional OCR, and manual review may help when dates are missing</li>
+        </ul>
+        <p>The app follows a defined extraction order and shows the source and confidence for its proposed date. Review uncertain or surprising results before applying them.</p>
+      </div>
+
+      <h2>Handling Duplicates</h2>
+      <p>Fix My Photo Dates repairs dates; it does not identify or remove duplicate photos. Review duplicates separately before or after date repair.</p>
+      <ul>
+        <li>Use a dedicated duplicate finder to compare identical or similar images.</li>
+        <li>Keep an independent backup before deleting or moving duplicate files.</li>
+        <li>Use this app to inspect and repair dates on the files you choose.</li>
+      </ul>
+
+      <h2>Review and repair dates in a batch</h2>
+
+      <div class="step-section">
+        <h3>Our Approach</h3>
+        <ol>
+          <li><strong>Choose a folder:</strong> Scan the local photo files you want to review</li>
+          <li><strong>Inspect supported clues:</strong> EXIF, enabled Takeout sidecars, filenames, chronology, and optional OCR</li>
+          <li><strong>Review proposals:</strong> Check the detected date, source, and confidence</li>
+          <li><strong>Choose repair targets:</strong> Select file timestamps, EXIF date fields, or both</li>
+          <li><strong>Apply selected changes:</strong> Keep the local repair record for rollback</li>
+        </ol>
+      </div>
+
+      <h2>Example: A folder assembled from several devices</h2>
+      <p>Before importing a mixed folder into a photo app, first find out which files have usable dates:</p>
+      <ul>
+        <li>Some images have EXIF capture dates</li>
+        <li>Some files have newer Windows creation dates from copying</li>
+        <li>Some exports include Google Takeout JSON sidecars</li>
+        <li>Other files need manual review because no reliable date was found</li>
+      </ul>
+      <p><strong>Next step:</strong> Review the app's proposed date and its source for each file. After selecting repairs, import the files and check how your chosen photo app displays them.</p>
+
+      <div class="cta-section">
+        <h2>Ready to Unify Your Library?</h2>
+        <p>Inspect a mixed photo folder and repair only the dates you choose.</p>
+        <a href="https://apps.microsoft.com/detail/9NFKQ1MV9399" class="btn" target="_blank" rel="noopener">Get on Microsoft Store</a>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Runs on Windows. Keep a separate backup of important files before changing metadata.</p>
+      </div>
+
+      <div class="related-links">
+        <h3>Other Photo Date Problems</h3>
+        <ul>
+          <li><a href="google-takeout-photo-dates.html">Google Takeout photos have wrong dates</a></li>
+          <li><a href="photo-dates-after-moving-files.html">Moving files overwrote my photo dates</a></li>
+          <li><a href="faq.html">More FAQ about photo organization</a></li>
+        </ul>
+      </div>
+
+      <h2>FAQ</h2>
+      <h3>Can you detect duplicate photos?</h3>
+      <p>No. The app does not identify or remove duplicate photos. Use a dedicated duplicate-management tool for that task.</p>
+
+      <h3>What if a photo has no EXIF data?</h3>
+      <p>The app checks Google Takeout JSON sidecars when enabled, supported filename patterns, chronological context, and optional timestamp OCR. If no reliable date is available, the file is marked uncertain for manual review.</p>
+
+      <h3>Can I trust the app to pick the right date?</h3>
+      <p>Review the detected date, source, and confidence before applying a repair. You can exclude a file or manually override a suggested date.</p>
+
+      <h3>What about cloud-stored photos?</h3>
+      <p>Our app works with local files. Download them first (Google Takeout, OneDrive sync, etc.), then let our app fix the dates. We can't access cloud APIs directly—only local files.</p>
+    </article>
+
+    <footer>
+      <p>&copy; 2026 Fix My Photo Dates Timeline. <a href="./">Home</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+    </footer>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowToArticle",
+    "headline": "Organize Photos From Multiple Sources: Fix Date Conflicts",
+    "description": "Photos from phone, cloud, USB, and backups have different dates. Learn how to create a unified timeline.",
+    "author": {
+      "@type": "Organization",
+      "name": "Fix My Photo Dates Timeline"
+    },
+    "datePublished": "2026-09-24"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://nikatsam.github.io/FixMyPhotoDates-Website/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Mixed Photo Sources",
+        "item": "https://nikatsam.github.io/FixMyPhotoDates-Website/mixed-photo-sources.html"
+      }
+    ]
+  }
+  </script>
+</body>
+</html>

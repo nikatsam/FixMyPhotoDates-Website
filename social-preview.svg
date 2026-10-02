@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f5f3ed"/>
+  <circle cx="1010" cy="116" r="260" fill="#e6ebd8"/>
+  <rect x="73" y="70" width="50" height="50" rx="14" fill="#18342d"/>
+  <text x="87" y="106" fill="#c7ef69" font-family="Arial,sans-serif" font-size="32" font-weight="700">f.</text>
+  <text x="140" y="102" fill="#18342d" font-family="Arial,sans-serif" font-size="23" font-weight="700">fix my photo dates</text>
+  <text x="76" y="280" fill="#18342d" font-family="Arial,sans-serif" font-size="72" font-weight="700" letter-spacing="-4">Your photo timeline,</text>
+  <text x="76" y="370" fill="#788f3b" font-family="Georgia,serif" font-size="76" font-style="italic">back in its place.</text>
+  <text x="80" y="442" fill="#68756e" font-family="Arial,sans-serif" font-size="25">Diagnose and repair wrong photo dates on Windows.</text>
+  <rect x="80" y="500" width="245" height="62" rx="5" fill="#18342d"/>
+  <text x="109" y="539" fill="#fffefa" font-family="Arial,sans-serif" font-size="20" font-weight="700">Get it on Windows ↗</text>
+  <rect x="858" y="196" width="220" height="284" rx="4" fill="#fffefa" transform="rotate(8 858 196)"/>
+  <rect x="839" y="180" width="220" height="284" rx="4" fill="#fffefa" transform="rotate(-5 839 180)"/>
+  <rect x="858" y="195" width="182" height="202" fill="#9ec5ab"/>
+  <circle cx="1008" cy="226" r="19" fill="#f6ce77"/>
+  <path d="M858 352 914 269l32 41 39-70 55 112v45H858Z" fill="#547a65"/>
+  <rect x="858" y="412" width="182" height="49" fill="#fffefa"/>
+  <text x="873" y="432" fill="#788577" font-family="Arial,sans-serif" font-size="10">DATE TAKEN</text>
+  <text x="873" y="451" fill="#18342d" font-family="Arial,sans-serif" font-size="15" font-weight="700">Aug 14, 2019</text>
+</svg>

@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Moved or copied your photos? Windows overwrote the creation date. Your photo timeline is scrambled. Learn why it happens and how to restore correct dates instantly.">
+  <meta name="keywords" content="fix photo dates after moving files, restore photo creation date, Windows photo dates wrong, fix photo timeline after copy">
+  <meta name="author" content="Nikatsam">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Fix Photo Dates After Moving Files - Restore Timeline">
+  <meta property="og:description" content="Moving photos overwrote your creation dates. Your timeline is scrambled. See why it happens and how to fix it instantly.">
+  <meta property="og:url" content="https://nikatsam.github.io/FixMyPhotoDates-Website/photo-dates-after-moving-files.html">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://nikatsam.github.io/FixMyPhotoDates-Website/photo-dates-after-moving-files.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <title>Fix Photo Dates After Moving Files | Restore Timeline</title>
+
+  <style>
+    :root {
+      --accent-600: #D97706;
+      --accent-500: #F59E0B;
+      --accent-50: #FEF3C7;
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-700: #334155;
+      --slate-500: #64748B;
+      --slate-100: #E2E8F0;
+      --slate-50: #F8F9FA;
+      --success: #10B981;
+      --text-primary: #1E293B;
+      --text-secondary: #64748B;
+      --bg-light: #F8F9FA;
+      --bg-white: #FFFFFF;
+
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-primary);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --text-primary: #F1F5F9;
+        --text-secondary: #CBD5E1;
+        --bg-light: #1E293B;
+        --bg-white: #0F172A;
+        --slate-100: #334155;
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --text-primary: #F1F5F9;
+      --text-secondary: #CBD5E1;
+      --bg-light: #1E293B;
+      --bg-white: #0F172A;
+      --slate-100: #334155;
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0 16px;
+      background: var(--bg-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; }
+
+    h1 { font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 800; margin: 2rem 0 1rem 0; line-height: 1.2; }
+    h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; margin: 2.5rem 0 1rem 0; color: var(--accent-600); }
+    h3 { font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; }
+
+    p { margin: 0 0 1rem 0; max-width: 65ch; }
+
+    a { color: var(--accent-600); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--slate-100);
+      margin-bottom: 2rem;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--accent-600);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav a { color: var(--text-secondary); }
+    nav a:hover { color: var(--accent-600); }
+
+    @media (max-width: 640px) {
+      nav { display: none; }
+    }
+
+    .breadcrumb {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .breadcrumb a { color: var(--accent-600); }
+
+    .problem-box {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.05), rgba(245, 158, 11, 0.05));
+      border-left: 4px solid var(--accent-600);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .problem-box {
+        background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(245, 158, 11, 0.1));
+        border-left-color: var(--accent-500);
+      }
+    }
+
+    :root[data-theme="dark"] .problem-box {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(245, 158, 11, 0.1));
+      border-left-color: var(--accent-500);
+    }
+
+    .step-section {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .step-section {
+        background: var(--slate-900);
+      }
+    }
+
+    :root[data-theme="dark"] .step-section {
+      background: var(--slate-900);
+    }
+
+    .step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #D97706, #F59E0B);
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 { margin-top: 0; }
+
+    .cta-section {
+      background: linear-gradient(135deg, #D97706, #F59E0B);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .cta-section h2 { color: white; }
+    .cta-section p { color: rgba(255, 255, 255, 0.9); }
+
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 1.75rem;
+      background: white;
+      color: var(--accent-600);
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    ul, ol { max-width: 65ch; }
+    li { margin-bottom: 0.5rem; }
+
+    footer {
+      border-top: 1px solid var(--slate-100);
+      padding: 3rem 0;
+      margin-top: 4rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .related-links {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      margin: 2rem 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .related-links {
+        background: var(--slate-900);
+      }
+    }
+
+    :root[data-theme="dark"] .related-links {
+      background: var(--slate-900);
+    }
+
+    .related-links h3 { margin-top: 0; }
+    .related-links ul { margin: 0; padding-left: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <div class="logo">📸 Fix My Photo Dates</div>
+        <nav>
+          <a href="./">Home</a>
+          <a href="product.html">How It Works</a>
+          <a href="faq.html">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="breadcrumb">
+      <a href="./">Home</a>
+      <span>/</span>
+      <span>Photo Dates After Moving Files</span>
+    </div>
+
+    <article>
+      <h1>Fix Photo Dates After Moving Files: Restore Your Timeline</h1>
+      <p><strong>You organized your photo folders. Or you copied files to a new drive. Or you cleaned up your library.</strong> Now when you sort by date, everything is wrong. All your photos show today's date instead of when you took them. Your timeline is destroyed.</p>
+
+      <div class="problem-box">
+        <h3>The Problem</h3>
+        <p>Copying a photo can give it a new filesystem "Date created" even when its embedded "Date taken" (EXIF) is still intact. The dates describe different things, and photo apps may sort using embedded capture dates or filesystem timestamps depending on the app and view.</p>
+        <p><strong>Why it hurts:</strong> Your photo library displays chronologically by the wrong date. Albums are scrambled. Years of photos look like they were all taken yesterday.</p>
+      </div>
+
+      <h2>Why Windows Does This</h2>
+      <p>It's not intentional—it's how file systems work:</p>
+      <ul>
+        <li><strong>Copy operation creates a new filesystem entry:</strong> The destination file's "Date created" may reflect when it was copied.</li>
+        <li><strong>Move behavior varies:</strong> Moving within a drive and moving across drives can affect filesystem timestamps differently.</li>
+        <li><strong>Filesystem dates are not capture dates:</strong> "Date created" and "Date modified" describe the file on disk, not necessarily when the photo was taken.</li>
+        <li><strong>Photo apps choose their own sort field:</strong> Check the date field and sorting behavior in the app where you view the photos.</li>
+        <li><strong>EXIF data gets lost in some scenarios:</strong> If you use certain photo tools or batch editors, the original EXIF might get stripped</li>
+      </ul>
+
+      <h2>How to Diagnose: Is This Actually Your Problem?</h2>
+
+      <div class="step-section">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Check File Properties</h3>
+            <p>Right-click a photo → Properties. Look at "Date modified". Does it show today's date or the date you organized?</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Check EXIF Metadata</h3>
+            <p>Right-click photo → Properties → Details tab. Look for "Date taken". Is it different from "Date modified"?</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>View in Photo App</h3>
+            <p>Open photos in Windows Photos or similar. Are they in random order? All showing same date?</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Remember When</h3>
+            <p>Do you remember approximately when you moved these files? If all photos show that date, your EXIF is intact but file dates got overwritten.</p>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>If "Date created" is recent but the photo was taken years ago,</strong> compare it with the embedded "Date taken" before changing anything.</p>
+
+      <h2>The Good News: EXIF Data Probably Still Exists</h2>
+      <p>Moving files often leaves embedded EXIF metadata intact, which may provide a reliable capture date:</p>
+      <ul>
+        <li>✓ EXIF "Date Taken" is still inside the file</li>
+        <li>✓ Filesystem creation and modified dates are separate values</li>
+        <li>✓ A capture date may be recoverable from embedded metadata</li>
+        <li>✓ Review the evidence before choosing which date fields to update</li>
+      </ul>
+
+      <p><strong>The appropriate repair depends on the app you use:</strong> update filesystem timestamps, embedded EXIF dates, or both after reviewing the preview.</p>
+
+      <h2>Can You Manually Fix This? (The Hard Way)</h2>
+      <ul>
+        <li>✗ Extract EXIF date from each photo</li>
+        <li>✗ Use Windows command-line tools (convoluted)</li>
+        <li>✗ Use third-party EXIF editors one-by-one</li>
+        <li>✗ Risk corrupting files if commands are wrong</li>
+        <li>✗ Repeat for hundreds or thousands of photos</li>
+      </ul>
+      <p>Most people give up.</p>
+
+      <h2>The Solution: Automated Repair (One Click)</h2>
+
+      <div class="step-section">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Download & Run</h3>
+            <p>Get the Windows app from Microsoft Store. No account is required to diagnose your files.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Scan Your Library</h3>
+            <p>App reads EXIF metadata from each photo and identifies which dates are wrong.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Review & Approve</h3>
+            <p>Review the detected date, source, and proposed change before applying a repair.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Done</h3>
+            <p>The selected file timestamps or EXIF date fields are updated. Check the resulting sort order in the photo app you use.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Prevention: How to Avoid This In Future</h2>
+      <ul>
+        <li><strong>Use photo management software:</strong> Lightroom, Photos app, Capture One preserve EXIF dates during moves</li>
+        <li><strong>Avoid Windows file operations:</strong> Don't use File Explorer to move photos. Use photo software instead.</li>
+        <li><strong>Check before organizing:</strong> Before you move 10,000 photos, test with 10. See if dates survive.</li>
+        <li><strong>Backup originals:</strong> Keep original files in case dates do get corrupted</li>
+        <li><strong>Fix dates first:</strong> If you accidentally moved files, fix dates before doing more organizing</li>
+      </ul>
+
+      <div class="cta-section">
+        <h2>Ready to Restore Your Timeline?</h2>
+        <p>Fix your photo dates in seconds. All dates in correct order. One-click undo if needed.</p>
+        <a href="https://apps.microsoft.com/detail/9NFKQ1MV9399" class="btn" target="_blank" rel="noopener">Get on Microsoft Store</a>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Runs on Windows. Processing stays on your PC; see the privacy policy for website and app details.</p>
+      </div>
+
+      <div class="related-links">
+        <h3>Other Date Problems We Fix</h3>
+        <ul>
+          <li><a href="google-takeout-photo-dates.html">Google Takeout replaced my photo dates</a></li>
+          <li><a href="mixed-photo-sources.html">Photos from multiple sources have conflicting dates</a></li>
+          <li><a href="faq.html">More FAQ about photo date repair</a></li>
+        </ul>
+      </div>
+
+      <h2>FAQ</h2>
+      <h3>Does your app overwrite my original files?</h3>
+      <p>No. We only update the file's timestamp metadata. Original photo content is never touched. You can undo any change instantly.</p>
+
+      <h3>What if some EXIF dates are also wrong?</h3>
+      <p>Our app compares multiple sources (EXIF, filename, sidecar files) and uses intelligent scoring to determine the most likely correct date. You review everything before applying changes.</p>
+
+      <h3>Does it work for all photo formats?</h3>
+      <p>Yes. JPEG, PNG, RAW, HEIC, TIFF, GIF—we handle them all. Any format that supports EXIF metadata.</p>
+
+      <h3>Is it free?</h3>
+      <p>Check the Microsoft Store listing for current price and licensing details.</p>
+    </article>
+
+    <footer>
+      <p>&copy; 2026 Fix My Photo Dates Timeline. <a href="./">Home</a> | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+    </footer>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowToArticle",
+    "headline": "Fix Photo Dates After Moving Files: Restore Your Timeline",
+    "description": "Moving files overwrote your photo dates. Learn why it happens and how to fix it instantly.",
+    "author": {
+      "@type": "Organization",
+      "name": "Fix My Photo Dates Timeline"
+    },
+    "datePublished": "2026-09-24",
+    "howToStep": [
+      {
+        "@type": "HowToStep",
+        "name": "Download the app",
+        "text": "Download Fix My Photo Dates for Windows"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Scan your library",
+        "text": "App analyzes EXIF data and identifies wrong dates"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Review changes",
+        "text": "See before/after for each photo, approve fixes"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Done",
+        "text": "Dates are restored, timeline is correct"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://nikatsam.github.io/FixMyPhotoDates-Website/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Photo Dates After Moving Files",
+        "item": "https://nikatsam.github.io/FixMyPhotoDates-Website/photo-dates-after-moving-files.html"
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
